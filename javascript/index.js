@@ -117,5 +117,25 @@ makeBroccoli()
 
 
 
-// Bonus 2 - Promise all
-// ...
+//Bonus 2 - Promise all
+async function displayBrussels(){
+p0 = obtainInstruction("brusselsSprouts",0)
+p1 = obtainInstruction("brusselsSprouts",1)
+p2 = obtainInstruction("brusselsSprouts",2)
+p3 = obtainInstruction("brusselsSprouts",3)
+p4 = obtainInstruction("brusselsSprouts",4)
+p5 = obtainInstruction("brusselsSprouts",5)
+p6 = obtainInstruction("brusselsSprouts",6)
+p7 = obtainInstruction("brusselsSprouts",7)
+
+return Promise.all([p0, p1, p2, p3, p4, p5, p6, p7])
+.then (values => {
+  values.forEach(e => (document.querySelector("#brusselsSprouts").innerHTML += `<li>${e}</li>`))
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  });
+
+}
+displayBrussels()
+
+
